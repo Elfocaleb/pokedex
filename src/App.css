@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,200;1,400;1,700&family=Patua+One&display=swap');
+
+*{font-family: 'Josefin Sans', sans-serif;}
+h1, h2, h3, h4, h5 {font-family: 'Patua One', 'Josefin Sans', sans-serif;}
+
+:root {
+    --altezza_navbar: 5rem;
+    --border_radius: 16px;
+    
+    --barra_stats_altezza:1.5rem;
+    
+}
+.App {
+    padding-top: calc(var(--altezza_navbar) + 1rem);
+    min-height: 100vh;
+    background: rgb(182,0,0);
+    background: rgb(237,0,0);
+    background: -moz-radial-gradient(circle, rgba(237,0,0,1) 55%, rgba(134,0,0,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(237,0,0,1) 55%, rgba(134,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(237,0,0,1) 55%, rgba(134,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ed0000",endColorstr="#860000",GradientType=1);
+}
+.navbar{
+    background: red;
+    height: var(--altezza_navbar)
+}
+.navbar-brand{
+    margin: auto;
+    position: relative;
+    top: -5px;
+    width: fit-content
+}
+#logo{
+    height: var( --altezza_navbar);
+    margin: 0 auto;
+    text-align: center
+}
+/* ==== ANIMS =========================================================== */
+@keyframes pkmAppear {
+  0% { opacity: 0; transform: translate(-50%, 0) scale(0.3); border-radius: 50%}
+  100% { opacity: 1;transform: translate(-50%, 0) scale(1); border-radius: 0}
+}
+@keyframes shake {
+  0% { transform: rotate(-10deg)}
+  100% { transform: rotate(10deg)}
+}
+
+
+
+
+
+/* ==== GRIDVIEW ======================================================== */
+#gridview{
+    margin-top: 40px;
+}
+#gridview.solo_gotcha > div:not(.gotcha){
+    display: none
+}
+#gridview.solo_missing > div.gotcha{
+    display: none
+}
+
+/* ==== STATSBAR ========================================================= */
+#statsbar{
+    
+}
+#filtersbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+#filtericon {
+    display: none
+}
+#filtersbox:hover #filtericon{
+    animation: shake 0.1s ease;
+    animation-iteration-count: 8;
+    animation-direction: alternate
+}
+#filtersbox button {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 20px;
+    padding: 0 15px;
+    transition: all 0.3s ease-in-out
+}
+#filtersbox button.selected {
+    border: 2px solid red;
+    drop-shadow: 0, 0, 4px red
+}
+#filtersbox button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 0 0px rgba(255, 255, 255, 1);
+    transform: scale(1.1) 
+}
+
+#searchbox{
+    background: white;
+    border-radius: 15px;
+    transition: 0.4s all ease-in-out;
+    padding: 0;
+    max-width: 250px;
+    margin: 25px auto 0 auto
+}
+
+#searchbox #searchfield{
+    border-radius: 15px;
+    border: 0 solid transparent;;
+    width: 100%;
+    padding-left: 10px
+}
+
+#searchbox button{
+    position: absolute; 
+    right:-3px;
+    top: -4px;
+    border: 0 solid transparent;;
+    border-radius: 18px;
+    width: 36px; 
+    height: 36px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5),  1px 3px 4px rgba(0, 0, 0, 0.5);
+    transition: 0.4s all ease-in-out;
+}
+#searchbox button img{
+    width: 90%;
+    transition: 0.4s all ease-in-out;
+}
+
+#searchbox button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(0, 0, 4px, 0.3),  4px 16px 4px rgba(0, 0, 0, 0.3);
+}
+#searchbox button:hover img{
+    width: 100%
+}
+
+.erroreAPI div {
+    margin-top: 20px;
+    text-align: center; 
+    font-weight: bold; 
+    color: white
+}
+
+@media (min-width: 768px){
+    #filtersbox{
+        justify-content: flex-start;
+    }
+    #filtersbox button{
+        margin-left: 1rem;
+    }
+    #filtericon {
+        display: initial;
+        width:15px
+    }
+    #searchbox{ 
+        text-align: center; 
+        margin-top: 0
+    }
+    #searchbox input{
+        max-width: 250px;
+    }
+}
+/* ==== CARD ============================================================ */
+.card{
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: var(--border_radius);
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 70%), 3px 4px 11px rgb(0 0 0 / 26%);
+    transition: all 0.3s ease-in-out
+}
+.card:hover{
+    box-shadow: 0px 1px 7px rgb(0 0 0 / 30%), 10px 11px 13px rgb(0 0 0 / 8%);
+    transition: all 0.3s ease-in-out;
+    transform: rotate(1deg) scale(1.03)
+}
+
+.card .card-header{
+    background: rgb(231,231,231);
+    background: -moz-radial-gradient(circle, rgba(231,231,231,1) 0%, rgba(205,204,204,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(231,231,231,1) 0%, rgba(205,204,204,1) 100%);
+    background: radial-gradient(circle, rgba(231,231,231,1) 0%, rgba(205,204,204,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7",endColorstr="#cdcccc",GradientType=1);
+    height: 5.5em;
+    border-radius: var(--border_radius) var(--border_radius) 0 0 ;
+}
+.gotcha .card .card-header{
+    background: rgb(254 206 65);
+   
+    background: -moz-radial-gradient(circle, (241 229 165) 0%, rgb(255 204 56) 100%);
+    background: -webkit-radial-gradient(circle, (241 229 165) 0%, rgb(255 204 56) 100%);
+    background: radial-gradient(circle, rgb(241 229 165) 0%, rgb(255 204 56) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7",endColorstr="#cdcccc",GradientType=1);
+
+}
+.card .card-header .pkmID{
+    font-family: 'Patua One';
+    font-size: 3rem;
+    line-height: 0.9em;
+    opacity: 0.13
+}
+.pokespinner{
+    max-height: 100px
+}
+.card .card-header img{
+    display: block;
+    position: absolute;
+    top:10px;
+    left: 50%;
+    transform:translate(-50%, 0);
+    transition: all 0.4s ease-in-out;
+     
+}
+.card .card-header img.card-img-top{
+    animation: pkmAppear 2s;
+}
+.card:hover .card-header img{
+    transform: translate(-50%, 0) scale(1.1) rotate(-2deg);
+}
+.card .pkmType{
+    width: 100%;
+    border-top:4px solid yellow;
+    min-height: 10px;
+    display: block;
+    text-align: right
+}
+
+.card .card-title {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.card .card-title a{
+    text-decoration: none;
+    color: grey
+}
+.card .card-title a:hover{
+    color: #0d6efd
+}
+.btn-search img{
+    width: 40px;
+    opacity: 0.9;
+    position: relative;
+    top: 8px;
+}
+.btn-search:hover img{
+    opacity: 1;
+}
+
+/* ==== Scheda Pokemon ====================================================== */
+
+.changescheda{
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 20px
+}
+.changescheda a {
+    width: 70px
+}
+.schedaPKM .topbox{
+    background: white;
+    border-radius: var(--border_radius);
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 70%), 3px 4px 11px rgb(0 0 0 / 26%);
+    max-width: 750px;
+    margin: 50px auto 0 auto;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    z-index: 10;
+}
+.schedaPKM .topbox.gotcha{
+    border: 2px solid gold;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 70%), 3px 4px 11px rgb(0 0 0 / 26%), inset 0 0 20px 0px gold;
+}
+.schedaPKM  .topbox .imagebox{
+    background: green;
+    min-height: 150px;
+    display: inline-block;
+    border-radius: var(--border_radius);
+    position: relative;
+    text-align: center
+}
+.schedaPKM  .topbox .imagebox img{
+    max-height: 230px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, 5%);
+}
+
+.schedaPKM  .topbox .basebox .pkmId{
+   margin: 0
+}
+.schedaPKM  .topbox .basebox h2{
+    text-transform: capitalize;
+    font-size: 2.5rem;
+}
+.schedaPKM  .topbox .basebox .types {
+    margin-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.schedaPKM  .topbox .basebox .types span{
+    margin-left: 10px;
+    text-shadow: 0 0 2px black;
+}
+
+.schedaPKM .statsbox{
+    padding:     20px;
+    background: #eee;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 70%), 3px 4px 11px rgb(0 0 0 / 26%);
+    width: 90%;
+    margin-left: auto;
+    max-width: 720px;
+    border-radius: 0 0 var(--border_radius) var(--border_radius);    
+} 
+
+.schedaPKM .statsbox .pkmDescription{
+    padding:     20px;
+    border: 1px solid grey;
+    border-radius: calc(var(--border_radius) / 2);    
+    background: white
+} 
+
+
+.schedaPKM .statsbox .row-stat{
+    margin-bottom: 10px
+} 
+
+.schedaPKM .statsbox .statlabel{
+    text-align: right;
+    height: var(--barra_stats_altezza);
+    background: grey;
+    position: relative;
+    left: calc( var(--barra_stats_altezza) * -1);
+    color: white;
+    text-shadow: 1px 0 3px black;
+    font-size: 0.8rem;
+    line-height: 1.6rem
+} 
+
+.schedaPKM .statsbox .statlabel:after{
+    content:"";
+    height: 0; 
+    width: 0;
+    border: calc(var(--barra_stats_altezza) / 2) solid transparent;
+    border-left-color: grey;
+    position: absolute;
+    right:  calc( var(--barra_stats_altezza) * -1)
+} 
+
+.schedaPKM .statsbox .progress{
+    height: var(--barra_stats_altezza);
+    padding: 0;
+    box-shadow: inset 0 0 8px 0 #0000002b;
+} 
+
+
+@media (min-width: 450px){
+    .schedaPKM .statsbox .statlabel{
+       font-size: 0.7rem 
+    }
+    .schedaPKM .statsbox .statlabel span{
+       font-size: 1.0rem 
+    }
+}
+
+@media (min-width: 576px){
+    .schedaPKM  .topbox .basebox{
+        text-align: right;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         align-items: flex-end;
+     }
+    .schedaPKM  .topbox .basebox .types {
+        position: initial;
+    }
+}
+
+/* ======== Pulsanti gestione collezione ============== */
+
+
+.iAmIn, .iAmOut{
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    border: 1rem solid green;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-bottom-right-radius: var(--border_radius);
+    transition: all 0.2s ease-in-out;
+    width: 0;
+    padding: 0!important;
+    background-color: transparent!important
+}
+.iAmOut{
+    border: 1rem solid red;
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+.iAmIn:after, .iAmOut:after{
+    content: "+";
+    font-size: 24px;
+    position: absolute;
+    bottom: -22px;
+    right: -13px;
+    transform: rotate(0deg);
+    transform-origin: 6.5px 18.5px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.8s ease-in-out;
+}
+.iAmOut:after{
+    content:"\2013";
+}
+.iAmIn:hover:after, .iAmOut:hover:after{
+    transform: rotate(360deg);
+}
+.basebox .iAmIn, .basebox .iAmOut {
+    bottom: -10px;
+    right: -10px;
+}

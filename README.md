@@ -1,59 +1,70 @@
-# React Pokedex
-A pokedex using React.js and Restful APIs
-**current version: V0.1 - 9/10/2021
+# Getting Started with Create React App
 
-## Request
-*Questo repository, temporanemaente privato, contiene il progetto richiesto. Di seguito i requisiti:*
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Il tema dell'esercizio è riprodurre una minimale versione del Pokédex. I requisiti che ti diamo sono i seguenti:
-    dalla homepage posso visualizzare la lista dei pokemon;
-    posso cliccare su un qualsiasi pokemon e visualizzare la scheda dei dettagli del pokemon in questione;
-    sia dai dettagli, sia dalla lista dei pokemon, posso dire quali ho catturato (salvando la lista dove preferisci);
-    posso filtrare il pokedex per i pokemon non catturati, per quelli catturati o per tutti.
+## Available Scripts
 
-Bonus
-    potrei voler cercare i pokémon dalla lista presenta nella homepage, tramite una search input.
+In the project directory, you can run:
 
-Materiale
-    https://pokeapi.co/ (le API per recuperare i Pokémon)
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Features
-The pokedex is still not in its final form but here is the project:
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-The Pokedex fetches Restful APIs provided by pokeapi.co, allowing an easy browsing through all the pokemons in the database. 
-Users can manage a simple personal collection of pokemons, tha is stored in the LocalStorage. Owned pokemons are highlighted, both in gridview and in detail view.
+### `npm test`
 
-### Homepage
-The homepage gathers in a gridview all the pokemon cards, containing the image, name, type and two buttons, the first linked to the pokemon's details, the other to flag it in the user personal collection. Pressing the button again it will be possible to free te pokemon and remove it from the collection.
-In the uppermost section three buttons will allow to filter the gridview, displaying only the creatures in collection, the ones not in collecton and the full lint.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Pokemon detail view
-A personal folder for the pokemon, gathering all the info and stats. It is possible to cycle through all the pokemons with two "next" and "prev" buttons. A conditional check allows to jump from the first to the last one. It is possible to add/remove a pokemon from the collection also fron this view.
+### `npm run build`
 
-# TO-DOs
-**TECHNICAL STUFF**
-- The overall code needs to be more tidy and commented
-- Organize css files in a more coherent methodology (e.g. BEM)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-**HOMEPAGE** 
-- Automatic redirect towards the detail view when a search is successful, 
-- Fix the "not found" bug, that appears at the first render
-- Add a textual list in a side column, providing a more compact and quick wa to see all pokemons, with a token/badge for those in the personal collection
-- Add a disclaimer and about page
-- Add a loader or a welcome animation to give a feedback to the user while data is loading.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-**CARDS**
-- insert the type and the icon in the card
-- implement an infinite scroller
+### `npm run eject`
 
-**POKEMON DETAIL VIEW**
-- add more details in subviews or drawers
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-#Version History
-**Version 0.1** - first release
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Credits: The author doesn't own any kind of propriety on Pokemon, Pokemon logo or any content of the franchise. The project itself is not commercial, as-is and coded only as an exercise. If needed, contact me directly.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
